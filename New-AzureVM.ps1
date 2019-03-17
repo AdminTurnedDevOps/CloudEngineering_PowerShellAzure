@@ -37,7 +37,7 @@ Function New-AzureVM {
         [ValidateNotNullOrEmpty()]
         [string]$PubIPName = $VMName,
 
-        [parmater(Position = 7,
+        [parameter(Position = 7,
         HelpMessage = 'Please choose an image. By default, Azure picks Windows Server 2016 Datacenter')]
         [ValidateNotNullOrEmpty()]
         [string]$VMImage
