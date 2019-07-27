@@ -1,0 +1,29 @@
+﻿class CosmosDB {
+
+    [string]$resourceGroup
+    [string]$location
+    [string]$cosmosDBAccountName
+    [string]$consistencyPolicy
+    [string]$CosmoDBProperties
+        
+        # Method to create a CosmosDB NoSQL account 
+        [void] AddNoSQL($resourcegroup, $location, $cosmosDBAccountName){
+            
+            $this.resourceGroup = $resourceGroup
+            $this.location = $location
+            $this.cosmosDBAccountName = $cosmosDBaccountName
+
+            $azresourceparams = @{
+                'ResourceType'= "Microsoft.DocumentDb/databaseAccounts"
+                'ApiVersion' = "2015-04-08"
+                'ResourceGroupName' = $resourceGroup
+                'Location' = $location
+                'Name' = $cosmosDBaccountName         
+            }
+
+            New-AzResource @azresourceparams
+        }
+}
+
+$cosmodb = [CosmosDB]::new()
+$cosmodb.AddNoSQL('Prod', 'Central US', 'TestingNoSQL')
