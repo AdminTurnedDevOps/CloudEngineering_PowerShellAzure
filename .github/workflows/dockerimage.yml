@@ -12,6 +12,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image, tag Docker image with ACR repo, and push to ACR
       run: | 
-        docker build . --file Dockerfile --tag ubuntuTest:latest
+        docker build . --file Dockerfile --tag ubuntutest:latest
         docker tag ubuntu:latest testrepomjl92.azurecr.io/test/ubuntu:latest
         docker push testrepomjl92.azurecr.io/test/ubuntu:latest
