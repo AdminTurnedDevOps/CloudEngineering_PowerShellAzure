@@ -1,3 +1,3 @@
-FROM mcr.microsoft.com/windows/servercore/iis
+FROM ubuntu:latest
 
 MAINTAINER Michael Levan
