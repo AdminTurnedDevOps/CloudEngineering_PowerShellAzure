@@ -16,7 +16,7 @@ jobs:
 
     - uses: azure/container-actions/docker-login@master
       with:
-        login-server: testrepomjl92.azurecr.io
+        login-server: ${{ env.CONTAINER_REGISTRY }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
 
