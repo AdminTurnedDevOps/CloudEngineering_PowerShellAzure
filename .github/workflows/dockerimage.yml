@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURECREDS  }}
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.CONTAINER_REGISTRY }}
