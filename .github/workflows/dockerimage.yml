@@ -13,12 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-
-    - uses: azure/docker-login@v1
+    - uses: azure/login@v1
       with:
-        login-server: ${{ env.CONTAINER_REGISTRY }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        creds: ${{ secrets.AZURECREDS  }}
+
 
     - name: Build the Docker image, tag Docker image with ACR repo, and push to ACR
       run: | 
