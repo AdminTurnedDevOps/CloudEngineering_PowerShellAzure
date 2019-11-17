@@ -26,5 +26,5 @@ jobs:
     - name: Build the Docker image, tag Docker image with ACR repo, and push to ACR
       run: | 
         docker build . --tag ${{ env.CONTAINER_REGISTRY }}/ubuntutest:latest
-        #docker tag ubuntutest:latest testrepomjl92.azurecr.io/test/ubuntutest:latest
-        docker push ${{ env.CONTAINER_REGISTRY }}/ubuntutest:latest
+        docker tag ubuntutest:latest testrepomjl92.azurecr.io/test/ubuntutest:latest
+        #docker push ${{ env.CONTAINER_REGISTRY }}/ubuntutest:latest
