@@ -20,10 +20,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
 
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURECREDS  }}
-
     - name: Build the Docker image, tag Docker image with ACR repo, and push to ACR
       run: | 
         docker build . --file Dockerfile --tag ubuntutest:latest
