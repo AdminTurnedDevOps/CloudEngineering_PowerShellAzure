@@ -2,6 +2,9 @@ name: Push Ubuntu latest to ACR
 
 on: [push]
 
+env:
+  CONTAINER_REGISTRY: testrepomjl92.azurecr.io
+
 jobs:
 
   build:
@@ -10,6 +13,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS  }}
+    - uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.CONTAINER_REGISTRY }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+
     - name: Build the Docker image, tag Docker image with ACR repo, and push to ACR
       run: | 
         docker build . --file Dockerfile --tag ubuntutest:latest
